@@ -1,0 +1,5 @@
+{
+  "name": "Shadow Ledger",
+  "description": "A secure dossier and spreadsheet application for tracking profiles, traits, and secrets.",
+  "requestFramePermissions": []
+}
