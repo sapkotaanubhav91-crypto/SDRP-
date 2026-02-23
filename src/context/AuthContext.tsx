@@ -29,8 +29,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       const res = await fetch('/api/auth/me');
       if (res.ok) {
-        const data = await res.json();
-        setUser(data.user);
+        const text = await res.text();
+        try {
+          const data = JSON.parse(text);
+          setUser(data.user);
+        } catch (e) {
+          console.error('Auth check failed: Invalid JSON', text);
+        }
       }
     } catch (error) {
       console.error('Auth check failed', error);
